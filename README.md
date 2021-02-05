@@ -1,3 +1,3 @@
 # stack-for-deno
-This is data structure stack for Deno
+Data structure Stack for Deno
 Coming soon...!
