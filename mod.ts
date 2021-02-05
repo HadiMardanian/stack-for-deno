@@ -17,8 +17,8 @@ export default class Stack{
     }
 
     public pop(): any{
-        this.topIndex--;
-        return this.array[this.topIndex + 1];
+        this.array.splice(this.topIndex, 1);
+        return this.array[this.topIndex--];
     }
     
     public toString(): string{
