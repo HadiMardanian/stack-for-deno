@@ -1,3 +1,4 @@
 # stack-for-deno
 Data structure Stack for Deno
+It's just a beginning!
 
