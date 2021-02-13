@@ -1,36 +1,51 @@
-export default class Stack{
-    private array: Array<any>;
-    private topIndex: number;
-    
-    public constructor(){
-        this.array = [];
-        this.topIndex = -1;
+import Node from './lib/node';
+export default class Stack {
+    private first: Node;
+    private last: Node;
+    private size: number;
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
     }
-
-    public size() {
-        return this.topIndex + 1;
-    }
-
-    public push(x: any): Stack{
-        this.array[++this.topIndex] = x;
+    public push(val: any): Stack {
+        let newNode = new Node(val);
+        if (this.size == 0) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            let oldFirst = this.first;
+            this.first = newNode;
+            this.first.next = oldFirst;
+        }
+        this.size++;
         return this;
     }
-
-    public pop(): any{
-        this.array.splice(this.topIndex, 1);
-        return this.array[this.topIndex--];
+    public pop(): Node {
+        if (this.size == 0) {
+            return null;
+        }
+        let oldNode = this.first;;
+        
+        if (this.size == 1) {
+            this.first = null;
+            this.last = null;
+        } else {
+            let next = this.first.next;
+            console.log(this.first);
+            this.first = next;
+        }
+        oldNode.next = null;
+        this.size--;
+        return oldNode;
     }
-    
-    public toString(): string{
-        return `[${this.array.toString()}]`;
+    public get Size(): number{
+        return this.size;
     }
-
-    public isEmpty(): Boolean{
-        return this.topIndex == -1;
+    public get First(): Node{ 
+        return this.first;
     }
-
-    public clear(){
-        this.topIndex = -1;
+    public get Last(): Node { 
+        return this.last;
     }
-    
 }
