@@ -2,6 +2,7 @@
 <center>Data structure Stack for Deno</center>
 <br>
 <b>It's just a beginning!</b>
+<br>
 <code>
   push(val: any): Stack
 </code>
